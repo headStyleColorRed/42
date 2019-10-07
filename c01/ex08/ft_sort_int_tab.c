@@ -6,7 +6,7 @@
 /*   By: rlabrado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 09:19:28 by rlabrado          #+#    #+#             */
-/*   Updated: 2019/10/07 09:43:15 by rlabrado         ###   ########.fr       */
+/*   Updated: 2019/10/07 14:58:59 by rlabrado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	ft_sort_int_tab(int *tab, int size)
 	int j;
 
 	i = 0;
+	j = 0;
 	while (j < size)
 	{
 		while (i < size - 1)
