@@ -6,14 +6,14 @@
 /*   By: rlabrado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 12:28:40 by rlabrado          #+#    #+#             */
-/*   Updated: 2019/10/05 18:53:53 by rlabrado         ###   ########.fr       */
+/*   Updated: 2019/10/06 20:25:24 by avillega         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	rush(int one, int two);
+void	rush(int columns, int rows);
 
 int		main(void)
 {
-	rush(20, 58);
+	rush(5, 3);
 	return (0);
 }

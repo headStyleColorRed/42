@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlabrado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/06 18:36:33 by rlabrado          #+#    #+#             */
-/*   Updated: 2019/10/07 09:02:37 by rlabrado         ###   ########.fr       */
+/*   Created: 2019/10/07 09:53:04 by rlabrado          #+#    #+#             */
+/*   Updated: 2019/10/07 11:20:16 by rlabrado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_rev_int_tab(int *tab, int size)
+void	ft_rev_int_tab(int *tab, int size);
+
+int		main()
 {
-	int i;
-	int temp[size];
-	int contador;
+	int a[] = {1, 2, 3, 4, 5};
+	int b = 5;
+	int *c = a;
 
-	i = size - 1;
-	contador = 0;
-	while (contador < size)
+	ft_rev_int_tab(c, b);
+	for(int z = 0; z < b; z++)
 	{
-		temp[contador] = tab[contador];
-		contador++;
-	}
-	contador = 0;
-	while (i >= 0)
-	{
-		tab[contador] = temp[i];
-		i--;
-		contador++;
+		printf("%d, ", a[z]);
 	}
 }

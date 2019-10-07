@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlabrado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/06 18:36:33 by rlabrado          #+#    #+#             */
-/*   Updated: 2019/10/07 09:02:37 by rlabrado         ###   ########.fr       */
+/*   Created: 2019/10/07 09:53:04 by rlabrado          #+#    #+#             */
+/*   Updated: 2019/10/07 10:54:25 by rlabrado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_rev_int_tab(int *tab, int size)
+void	ft_div_mod(int a, int b, int *div, int *mod);
+
+int		main()
 {
-	int i;
-	int temp[size];
-	int contador;
+	int a = 9;
+	int b = 3;
 
-	i = size - 1;
-	contador = 0;
-	while (contador < size)
-	{
-		temp[contador] = tab[contador];
-		contador++;
-	}
-	contador = 0;
-	while (i >= 0)
-	{
-		tab[contador] = temp[i];
-		i--;
-		contador++;
-	}
+	int x;
+	int z;
+	int *c = &x;
+	int *d = &z;
+
+	ft_div_mod(a, b, c, d);
+	printf("La solucióne s %d, y el resto %d", x, z);
 }

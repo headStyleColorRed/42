@@ -6,22 +6,22 @@
 /*   By: rlabrado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/05 11:06:36 by rlabrado          #+#    #+#             */
-/*   Updated: 2019/10/06 20:09:54 by migufern         ###   ########.fr       */
+/*   Updated: 2019/10/06 20:28:06 by avillega         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_putchar(int wild_card);
 
-void	whileadora(char a, char b, char c, int one)
+void	whileadora(char a, char b, char c, int columns)
 {
 	int i;
 
 	i = 0;
-	while (i < one)
+	while (i < columns)
 	{
 		if (i == 0)
 			ft_putchar(a);
-		else if (i == one - 1)
+		else if (i == columns - 1)
 			ft_putchar(c);
 		else
 			ft_putchar(b);
@@ -29,7 +29,7 @@ void	whileadora(char a, char b, char c, int one)
 	}
 }
 
-void	border_line_writer(int one)
+void	border_line_writer(int columns)
 {
 	char a;
 	char b;
@@ -40,11 +40,11 @@ void	border_line_writer(int one)
 	b = 'B';
 	c = 'C';
 	new_line = '\n';
-	whileadora(a, b, c, one);
+	whileadora(a, b, c, columns);
 	ft_putchar(new_line);
 }
 
-void	middle_line_writer(int one)
+void	middle_line_writer(int columns)
 {
 	char	b;
 	char	space;
@@ -54,9 +54,9 @@ void	middle_line_writer(int one)
 	b = 'B';
 	space = ' ';
 	i = 0;
-	while (i < one)
+	while (i < columns)
 	{
-		if (i == 0 || i == one - 1)
+		if (i == 0 || i == columns - 1)
 			ft_putchar(b);
 		else
 			ft_putchar(space);
@@ -66,17 +66,17 @@ void	middle_line_writer(int one)
 	ft_putchar(new_line);
 }
 
-void	rush(int one, int two)
+void	rush(int columns, int rows)
 {
 	int i;
 
 	i = 0;
-	while (i < two)
+	while (i < rows)
 	{
-		if (i == 0 || i == two - 1)
-			border_line_writer(one);
+		if (i == 0 || i == rows - 1)
+			border_line_writer(columns);
 		else
-			middle_line_writer(one);
+			middle_line_writer(columns);
 		i++;
 	}
 }
