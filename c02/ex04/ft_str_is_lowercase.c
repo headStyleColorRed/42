@@ -6,11 +6,9 @@
 /*   By: rlabrado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 19:55:48 by rlabrado          #+#    #+#             */
-/*   Updated: 2019/10/07 19:57:55 by rlabrado         ###   ########.fr       */
+/*   Updated: 2019/10/08 13:48:04 by rlabrado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 int	ft_str_is_lowercase(char *str)
 {

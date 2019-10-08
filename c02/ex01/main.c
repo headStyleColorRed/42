@@ -17,17 +17,17 @@ char 	*ft_strncpy(char *dest, char *src, unsigned int n);
 int	main(void)
 {
 	char a[] = "Hola";
-	char b[5];
-	char *c = a;
-	char *d = b;
+	char b[7];
+	char *src = a;
+	char *dest = b;
 	int i = 0;
-	unsigned int e = 5;
+    unsigned int n = 7;
 
-	ft_strncpy(d, c, e);
+	ft_strncpy(dest, src, n);
 
-	while(b[i] != '\0')
+	while(dest[i] != '\0')
 	{
-		printf("%c", b[i]);
+		printf("%c", dest[i]);
 	i++;	
 	}
 

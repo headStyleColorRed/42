@@ -6,18 +6,18 @@
 /*   By: rlabrado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 20:24:16 by rlabrado          #+#    #+#             */
-/*   Updated: 2019/10/07 20:35:03 by rlabrado         ###   ########.fr       */
+/*   Updated: 2019/10/08 13:58:25 by rlabrado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_printable(char *str)
+int		ft_str_is_printable(char *str)
 {
 	int	i;
 
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (!(str[i] < 32 || str[i] > 126))
+		if (str[i] < 32 || str[i] > 126)
 			return (0);
 		i++;
 	}

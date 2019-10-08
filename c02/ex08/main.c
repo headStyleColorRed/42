@@ -1,14 +1,14 @@
 #include <stdio.h>
-int          strlowcase(char *str);
+int     ft_strlowcase(char *str);
 
 int        main(void)
 {
-    char a[] = "HOLACRACK";
+    char a[] = "HOLACa asdfaRACK";
     char *b = a;
     
-    strlowcase(b);
+    ft_strlowcase(b);
     
-    for(int i = 0; i < 9; i++)
+    for(int i = 0; a[i] != '\0'; i++)
     {
         printf("%c", a[i]);
     }

@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strupcase.c                                     :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlabrado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/08 14:00:06 by rlabrado          #+#    #+#             */
-/*   Updated: 2019/10/08 14:14:24 by rlabrado         ###   ########.fr       */
+/*   Created: 2019/10/08 14:49:15 by rlabrado          #+#    #+#             */
+/*   Updated: 2019/10/08 15:03:56 by rlabrado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		checkeadora_de_caracteres(char letter)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	if (letter >= 97 && letter <= 122)
-		return (1);
-	if (letter >= 65 && letter <= 90)
-		return (2);
-	else if (letter >= 48 && letter <= 57)
-		return (3);
-	else
-		return (0);
-}
-
-char	*ft_strupcase(char *str)
-{
-	int i;
+	unsigned int i;
 
 	i = 0;
-	while (str[i] != '\0')
+	while (i < size - 1 && src[i] != '\0')
 	{
-		if (checkeadora_de_caracteres(str[i]) == 1)
-			str[i] = str[i] - 32;
+		dest[i] = src[i];
 		i++;
 	}
-	return (str);
+	while (i < size)
+	{
+		dest[i] = '\0';
+		i++;
+	}
+	return (i);
 }
