@@ -6,12 +6,12 @@ unsigned int ft_strlcat(char *dest, char *src, unsigned int size);
 int     main(void)
 {
     char a[11] = "Vaya";
-    char b[] = " Hola";
+    char b[] = " Hola Rodri";
     char *c = a;
     char *d = b;
-    unsigned int size = 6;
+    unsigned int size = 11;
     
-    int numero = ft_strlcat(c, d, size);
+    ft_strlcat(c, d, size);
     
-    printf("%d", a[numero]);
+    printf("%s", a);
 }

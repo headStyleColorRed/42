@@ -5,8 +5,8 @@ char *ft_strstr(char *str, char *to_find);
 
 int     main(void)
 {
-    char a[] = "Vaya Rodrigo, cosas tiene la vida";
-    char b[] = "cosas";
+    char a[] = "GeeksforGeeks";
+    char b[] = "for";
     char *c = a;
     char *d = b;
     
