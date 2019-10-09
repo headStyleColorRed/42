@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlabrado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/05 10:42:21 by rlabrado          #+#    #+#             */
-/*   Updated: 2019/10/06 17:08:42 by rlabrado         ###   ########.fr       */
+/*   Created: 2019/10/09 14:59:54 by rlabrado          #+#    #+#             */
+/*   Updated: 2019/10/09 15:37:43 by rlabrado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char c)
+void	printer(char num)
 {
-	write(1, &c, 1);
+	write(1, &num, 1);
+}
+
+void	ft_putnbr(int nb)
+{
+	if (nb < 0)
+	{
+		nb *= -1;
+		printer('-');
+	}
+	if ((nb/10) > 0)
+		ft_putnbr(nb / 10);
+	printer(nb % 10 + 48);
 }

@@ -16,7 +16,7 @@ char 	*ft_strncpy(char *dest, char *src, unsigned int n);
 
 int	main(void)
 {
-	char a[] = "Hola";
+	char a[] = "Hola Rodrigo";
 	char b[7];
 	char *src = a;
 	char *dest = b;

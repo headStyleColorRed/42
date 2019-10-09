@@ -3,7 +3,7 @@ int         ft_str_is_uppercase(char *str);
 
 int        main(void)
 {
-    char a[] = "TWERTE";
+    char a[] = "SDFs";
     char *b = a;
     int resultado;
     

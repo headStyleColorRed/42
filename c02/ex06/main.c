@@ -3,7 +3,7 @@ int         ft_str_is_printable(char *str);
 
 int        main(void)
 {
-    char a[] = " ";
+    char a[] = "\(null)";
     char *b = a;
     int resultado;
     

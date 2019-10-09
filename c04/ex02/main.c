@@ -5,15 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlabrado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/05 12:28:40 by rlabrado          #+#    #+#             */
-/*   Updated: 2019/10/06 20:25:24 by avillega         ###   ########.fr       */
+/*   Created: 2019/10/09 15:00:04 by rlabrado          #+#    #+#             */
+/*   Updated: 2019/10/09 15:00:16 by rlabrado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	rush(int columns, int rows);
+#include <stdio.h>
 
-int		main(void)
+void ft_putnbr(int nb);
+
+int main(void)
 {
-	rush(5, 3);
-	return (0);
+    int c = 38;
+    ft_putnbr(c);
 }

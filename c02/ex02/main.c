@@ -14,7 +14,7 @@ int		ft_str_is_alpha(char *str);
 
 int		main(void)
 {
-	char a[] = "Rodrigo6Labrador";
+	char a[] = "whatever";
 	char *b = a;
 	int resultado;
 
