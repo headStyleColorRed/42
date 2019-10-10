@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_iterative_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlabrado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/09 20:34:05 by rlabrado          #+#    #+#             */
-/*   Updated: 2019/10/10 17:57:33 by rlabrado         ###   ########.fr       */
+/*   Created: 2019/10/10 13:05:53 by rlabrado          #+#    #+#             */
+/*   Updated: 2019/10/10 13:08:55 by rlabrado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+int		ft_iterative_power(int nb, int power)
 {
-	unsigned int i;
-	unsigned int j;
-	unsigned int k;
-	unsigned int occupancy;
+	int result;
 
-	occupancy = 0;
-	j = 0;
-	k = 0;
-	i = 0;
-	while (dest[i] != '\0')
-		i++;
-	while (src[k] != '\0')
-		k++;
-	occupancy = i + k;
-	while (i < size - 1 && src[j] != '\0')
+	result = 1;
+	while (power > 0)
 	{
-		dest[i] = src[j];
-		i++;
-		j++;
+		result *= nb;
+		power--;
 	}
-	dest[i] = '\0';
-	return (occupancy);
+	return (result);
 }
