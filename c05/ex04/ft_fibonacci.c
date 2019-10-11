@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_power.c                               :+:      :+:    :+:   */
+/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlabrado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/11 10:57:36 by rlabrado          #+#    #+#             */
-/*   Updated: 2019/10/11 10:57:51 by rlabrado         ###   ########.fr       */
+/*   Created: 2019/10/11 11:10:14 by rlabrado          #+#    #+#             */
+/*   Updated: 2019/10/11 11:11:36 by rlabrado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_recursive_power(int nb, int power)
+int		ft_fibonacci(int index)
 {
-	int result;
-
-	result = 0;
-	if (power < 0)
-		return (0);
-	if (power < 1)
-		return (1);
+	if (index < 0)
+		return (-1);
+	if (index < 3)
+		return (index);
 	else
-		return (nb * ft_recursive_power(nb, power - 1));
+		return (ft_fibonacci(index - 2) + ft_fibonacci(index - 1));
 }
