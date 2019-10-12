@@ -2,6 +2,17 @@
 #include <unistd.h>
 #include <stdlib.h>
 
+void print_matrix (int rows, int cols, int matrix[4][4])
+{
+    for(int t = 0; t < rows; t++)
+    {
+        printf("\n");
+        for(int z = 0; z < cols; z++)
+            printf("  %d ", matrix[t][z]);
+        
+    }
+}
+
 int check_row (int rows, int cols, int matrix[4][4])
 {
     int i;
@@ -21,7 +32,7 @@ int check_row (int rows, int cols, int matrix[4][4])
             {
                 if (matrix[i][j] == matrix[i][k] && matrix[i][j] != 0)
                 {
-                    printf("matrix[%d][%d] == matrix[%d][%d] son inguales al ser %d y %d \n",i, j, i, k, matrix[i][j], matrix[i][k]);
+                    printf("matrix[%d][%d] == matrix[%d][%d] son iguales al ser %d y %d \n",i, j, i, k, matrix[i][j], matrix[i][k]);
                     return (1);
                 }
                 k++;
@@ -53,7 +64,7 @@ int check_column (int rows, int cols, int matrix[4][4])
             {
                 if (matrix[j][i] == matrix[k][i] && matrix[i][j] != 0)
                 {
-                    printf("matrix[%d][%d] == matrix[%d][%d] son inguales al ser %d y %d \n",i, j, i, k, matrix[j][i], matrix[k][i]);
+                    printf("matrix[%d][%d] == matrix[%d][%d] son iguales al ser %d y %d \n",i, j, i, k, matrix[j][i], matrix[k][i]);
                     return (1);
                 }
                 k++;
@@ -109,22 +120,12 @@ void    matrix_generator(char *col_up, char *col_down, char *row_left, char *row
         i++;
 
     }
-    //check_line_column(matrix);
     
     
+    check_column(4, 4, matrix);
+    check_row(4, 4, matrix);
     
-    /*
-     for(int t = 0; t < rows; t++)
-     {
-     printf("\n");
-     for(int z = 0; z < cols; z++)
-     printf("  %d ", matrix[t][z]);
-     
-     }
-     
-     */
-    
-    
+    print_matrix(4, 4, matrix);  
   
     printf("\n");
     
