@@ -19,8 +19,8 @@ int     main(void)
     char *h = f;
     unsigned int talla = 90;
     
-    int res = ft_strlcat(c, d, size);
-    int res2 = strlcat(g, h, talla);
+    int res = ft_strlcat(c, d, 0);
+    int res2 = strlcat(g, h, 0);
     
     printf("Mine: %s\n", a);
     printf("Moli: %s\n", e);

@@ -6,7 +6,7 @@
 /*   By: rlabrado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/09 14:59:54 by rlabrado          #+#    #+#             */
-/*   Updated: 2019/10/09 15:37:43 by rlabrado         ###   ########.fr       */
+/*   Updated: 2019/10/15 14:02:23 by rlabrado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,15 @@ void	printer(char num)
 
 void	ft_putnbr(int nb)
 {
-	if (nb < 0)
+	long int a;
+
+	a = nb;
+	if (a < 0)
 	{
-		nb *= -1;
+		a *= -1;
 		printer('-');
 	}
-	if ((nb/10) > 0)
-		ft_putnbr(nb / 10);
-	printer(nb % 10 + 48);
+	if ((a / 10) > 0)
+		ft_putnbr(a / 10);
+	printer(a % 10 + 48);
 }

@@ -16,6 +16,6 @@ void ft_putnbr(int nb);
 
 int main(void)
 {
-    int c = 38;
+    long c = -2147483648;
     ft_putnbr(c);
 }
