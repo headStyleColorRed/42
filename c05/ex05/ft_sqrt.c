@@ -14,8 +14,10 @@ int		ft_sqrt(int nb)
 {
 	int num;
 
-	num = 0;
-	while (num < nb)
+    if (nb == 0)
+        return (0);
+	num = 1;
+	while (num < nb && num <= 46340)
 	{
 		if (num * num == nb)
 			return (num);

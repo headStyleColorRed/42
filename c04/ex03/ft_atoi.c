@@ -58,7 +58,7 @@ int		ft_atoi(char *str)
 	int		i;
 	int		j;
 	char	number_array[10];
-	int		a;
+	long int    a;
 	int		positive_or_negative;
 
 	j = 0;
