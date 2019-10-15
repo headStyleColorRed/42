@@ -4,7 +4,7 @@ void ft_putnbr_base(int nb, char *str);
 
 int main(void)
 {
-    int c = 214748369;
+    int c = -214748;
     char base[] = "0123456789ABCDEF";
     char *p_base = base;
     
