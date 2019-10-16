@@ -5,5 +5,5 @@ int ft_find_next_prime(int nb);
 
 int main(void)
 {
-    printf("%d", ft_find_next_prime(38));
+    printf("%d", ft_find_next_prime(2147483644));
 }

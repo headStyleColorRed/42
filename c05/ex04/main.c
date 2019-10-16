@@ -4,5 +4,5 @@ int ft_fibonacci(int index);
 
 int main(void)
 {
-    printf("%d", ft_fibonacci(24 - 1));
+    printf("%d", ft_fibonacci(19));
 }
