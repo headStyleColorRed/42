@@ -3,7 +3,7 @@ int          ft_strcapitalize(char *str);
 
 int        main(void)
 {
-    char a[] = "hoLa, como estas? 42paLAbras cuarenta-y-dos; cincuenta+y+uno";
+    char a[] = "hoLa, ¿como estas? 42paLAbras cuarenta-y-dos; cincuenta+y+uno";
     char *b = a;
     
     ft_strcapitalize(b);

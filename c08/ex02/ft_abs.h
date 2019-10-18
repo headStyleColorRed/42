@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_prime.c                                      :+:      :+:    :+:   */
+/*   ft_abs.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlabrado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/11 12:14:55 by rlabrado          #+#    #+#             */
-/*   Updated: 2019/10/16 10:27:05 by rlabrado         ###   ########.fr       */
+/*   Created: 2019/10/18 14:10:01 by rlabrado          #+#    #+#             */
+/*   Updated: 2019/10/18 14:10:05 by rlabrado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_prime(int nb)
-{
-	long int i;
+#ifndef FT_ABS_H
+# define FT_ABS_H
 
-	i = 2;
-	if (nb <= 1)
-		return (0);
-    if (nb == 4)
-        return (0);
-	while (i < nb / 2)
-	{
-		if (nb % i == 0)
-			return (0);
-		i++;
-	}
-	return (1);
-}
+# define ABS(Value) Value < 0 ? Value * -1 : Value
+
+#endif

@@ -4,5 +4,5 @@ int ft_is_prime(int nb);
 
 int main(void)
 {
-    printf("%d", ft_is_prime(199));
+    printf("%d", ft_is_prime(41));
 }

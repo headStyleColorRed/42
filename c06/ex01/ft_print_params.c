@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_prime.c                                      :+:      :+:    :+:   */
+/*   ft_print_params.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlabrado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/11 12:14:55 by rlabrado          #+#    #+#             */
-/*   Updated: 2019/10/16 10:27:05 by rlabrado         ###   ########.fr       */
+/*   Created: 2019/10/16 15:43:53 by rlabrado          #+#    #+#             */
+/*   Updated: 2019/10/16 15:46:14 by rlabrado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_prime(int nb)
-{
-	long int i;
+#include <unistd.h>
 
-	i = 2;
-	if (nb <= 1)
-		return (0);
-    if (nb == 4)
+void	printer(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i] != '\0')
+		write(1, &str[i++], 1);
+	write(1, "\n", 1);
+}
+
+int		main(int argc, char **argv)
+{
+	int i;
+	i = 1;
+    if (argv[3] == 0)
+    {
+        printer("Error");
         return (0);
-	while (i < nb / 2)
-	{
-		if (nb % i == 0)
-			return (0);
-		i++;
-	}
-	return (1);
+    }
+	while (i < argc)
+		printer(argv[i++]);
+	return (0);
 }

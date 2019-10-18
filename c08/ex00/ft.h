@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_prime.c                                      :+:      :+:    :+:   */
+/*   ft.h                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlabrado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/11 12:14:55 by rlabrado          #+#    #+#             */
-/*   Updated: 2019/10/16 10:27:05 by rlabrado         ###   ########.fr       */
+/*   Created: 2019/10/18 12:39:47 by rlabrado          #+#    #+#             */
+/*   Updated: 2019/10/18 13:00:01 by rlabrado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_is_prime(int nb)
-{
-	long int i;
+#ifndef FT_H
+# define FT_H
 
-	i = 2;
-	if (nb <= 1)
-		return (0);
-    if (nb == 4)
-        return (0);
-	while (i < nb / 2)
-	{
-		if (nb % i == 0)
-			return (0);
-		i++;
-	}
-	return (1);
-}
+void	ft_putchar(char c);
+void	ft_swap(int *a, int *b);
+void	ft_putstr(char *str);
+int		ft_strlen(char *str);
+int		ft_strcmp(char *s1, char *s2);
+
+#endif

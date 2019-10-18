@@ -5,5 +5,5 @@ int ft_sqrt(int nb);
 
 int main(void)
 {
-    printf("%d", ft_sqrt(4));
+    printf("%d", ft_sqrt(-49));
 }
