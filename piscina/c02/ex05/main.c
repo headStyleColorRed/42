@@ -1,5 +1,6 @@
 #include <stdio.h>
 int         ft_str_is_uppercase(char *str);
+void     ft_print_me(char *str);
 
 int        main(void)
 {
@@ -7,7 +8,7 @@ int        main(void)
     char *b = a;
     int resultado;
     
-    resultado = ft_str_is_uppercase(b);
-    printf("resultado: %d", resultado);
+   
+    ft_print_me(b);
     return (0);
 }

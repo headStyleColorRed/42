@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlabrado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/07 20:09:16 by rlabrado          #+#    #+#             */
-/*   Updated: 2019/10/08 13:51:11 by rlabrado         ###   ########.fr       */
+/*   Created: 2019/10/24 16:27:59 by rlabrado          #+#    #+#             */
+/*   Updated: 2019/10/24 16:28:48 by rlabrado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_uppercase(char *str)
+char	*ft_strdup(char *src)
 {
-	int	i;
+	char	*dest;
+	int		i;
+	int		lenght_of_src;
 
+	while (src[i++] != '\0')
+		lenght_of_src++;
+	dest = (char *)malloc(lenght_of_src);
 	i = 0;
-	while (str[i] != '\0')
+	while (src[i] != '\0')
 	{
-		if (str[i] < 65 || str[i] > 90)
-			return (0);
+		dest[i] = src[i];
 		i++;
 	}
-	return (1);
+	return (dest);
 }
