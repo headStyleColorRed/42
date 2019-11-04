@@ -1,6 +1,4 @@
 #include "libft.h"
-#include <string.h>
-#include <stdio.h>
 
 void	ft_bzero(void *str, size_t len)
 {

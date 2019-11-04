@@ -15,6 +15,4 @@
 
 #include <string.h>
 #include <stdio.h> //Borrar
-
-
 #endif
