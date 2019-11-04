@@ -13,6 +13,8 @@
 #ifndef FT_MY_FUNCTIONS_H
 # define FT_MY_FUNCTIONS_H
 
-int		ft_strlen(char *str);
+#include <string.h>
+#include <stdio.h> //Borrar
+
 
 #endif

@@ -1,19 +1,11 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: rlabrado <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/04 11:19:43 by rlabrado          #+#    #+#             */
-/*   Updated: 2019/11/04 11:20:17 by rlabrado         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "libft.h"
 
-int		ft_strlen(char *str)
+int ft_strlen(const char *string)
 {
 	int i;
+	const char *str;
 
+	str = string;
 	i = 0;
 	while (str[i] != '\0')
 	{
@@ -21,3 +13,13 @@ int		ft_strlen(char *str)
 	}
 	return (i);
 }
+
+int main() 
+{ 
+   char str[]= "fasdfasfadfasdfasdfasdf"; 
+  
+   printf("Length of string is: %d\n", strlen(str)); 
+   printf("Length of string is: %d", ft_strlen(str)); 
+  
+ return 0; 
+} 
