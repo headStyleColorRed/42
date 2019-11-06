@@ -2,8 +2,7 @@
 
 int main(void)
 {
-    int a = 3;
-    int b = 4;
-    int result = b + a;
-    return (result);
+    char buffer[256] = "Hola";
+    printf("The value entered is %d\n", ft_strlen(buffer));
+    return 0;
 }
