@@ -13,7 +13,7 @@ void *ft_memcpy(void *str1, const void *str2, size_t len)
   i = 0;
   if (!len || dest == src)
     return (dest);
-  while (i < len && dest[i]  && src[i] )
+  while (i < len)
   {
     dest[i] = src[i];
     i++;

@@ -24,8 +24,10 @@ SRC = ft_memset.c \
 	   ft_strlcat.c \
 	   ft_strnstr.c \
 	   ft_atoi.c \
-	   main.c
-
+	   ft_calloc.c \
+	   main.c \
+	   ft_strdup.c \
+	   
 OBJ = $(SRC:%.c=%.o)
 
 RM = rm -f

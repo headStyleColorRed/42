@@ -4,6 +4,7 @@
 
 #include <string.h>
 #include <stdio.h> 
+#include <stdlib.h>
 
 void				*ft_memset(void *str, int c, size_t n);
 void				ft_bzero(void *s, size_t n);
@@ -27,5 +28,7 @@ size_t              ft_strlcpy(char *str1, const char *str2, size_t size);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
 char				*ft_strnstr(const char *big, const char *lit, size_t len);
 int					ft_atoi(const char *str);
+void                *ft_calloc(size_t nitems, size_t size);
+char                *ft_strdup(const char *src);
 
 #endif
