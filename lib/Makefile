@@ -23,10 +23,13 @@ SRC = ft_memset.c \
 	   ft_strlcpy.c \
 	   ft_strlcat.c \
 	   ft_strnstr.c \
+	   ft_strstr.c \
 	   ft_atoi.c \
 	   ft_calloc.c \
-	   main.c \
 	   ft_strdup.c \
+	   ft_substr.c \
+	   ft_strjoin.c \
+	   ft_strtrim.c \
 	   
 OBJ = $(SRC:%.c=%.o)
 
@@ -35,7 +38,7 @@ RM = rm -f
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@gcc $(FLAG) $(OPTION) $(SRC)
+	@gcc -c $(FLAG) $(OPTION) $(SRC)
 	@ar -rcv $(NAME) $(OBJ)
 	@ranlib $(NAME)
 
