@@ -1,6 +1,6 @@
-#include  "libft.h"
+#include "libft.h"
 
-char	*ft_strncpy(char *dest, const char *src, size_t n)
+static char *ft_strncpy(char *dest, const char *src, size_t n)
 {
 	size_t pos;
 	pos = 0;
@@ -22,92 +22,88 @@ char	*ft_strncpy(char *dest, const char *src, size_t n)
 	return (dest);
 }
 
-int		ft_split_count_words(char *str, char *charset)
+static int ft_count_words(char *str, char *splitter)
 {
-	int	c;
-	int	word;
-	int	lword;
+	int i;
+	int number_of_words;
+	int each_word_length;
 
-	c = 0;
-	word = 0;
-	lword = 0;
-	while (str[c] != '\0')
+	i = 0;
+	number_of_words = 0;
+	each_word_length = 0;
+	while (str[i] != '\0')
 	{
-		if (ft_strncmp(&str[c], charset, ft_strlen(charset)) == 0)
+		if (ft_strncmp(&str[i], splitter, ft_strlen(splitter)) == 0)
 		{
-			c += ft_strlen(charset);
-			lword = 0;
+			i += ft_strlen(splitter);
+			each_word_length = 0;
 		}
 		else
 		{
-			if (!lword)
-				word++;
-			lword++;
-			c++;
+			if (each_word_length == 0)
+				number_of_words++;
+			each_word_length++;
+			i++;
 		}
 	}
-	return (word);
+	return (number_of_words);
 }
 
-void	ft_split_new_word(int *lword, int *word, int *c)
+static void ft_split_new_word(int *each_word_length, int *word, int *i)
 {
-	if (!*lword)
+	if (!*each_word_length)
 		(*word)++;
-	(*lword)++;
-	(*c)++;
+	(*each_word_length)++;
+	(*i)++;
 }
 
-char	*ft_split_get_word(char *str, char *charset, int nword)
+static char *ft_split_get_word(char *str, char *splitter, int nword)
 {
-	int		c;
-	int		word;
-	int		lword;
-	char	*strword;
+	int i;
+	int word;
+	int each_word_length;
+	char *strword;
 
-	c = 0;
+	i = 0;
 	word = 0;
-	lword = 0;
-	while (str[c] != '\0')
+	each_word_length = 0;
+	while (str[i] != '\0')
 	{
-		if (ft_strncmp(&str[c], charset, ft_strlen(charset)) == 0)
+		if (ft_strncmp(&str[i], splitter, ft_strlen(splitter)) == 0)
 		{
-			c += ft_strlen(charset);
-			lword = 0;
+			i += ft_strlen(splitter);
+			each_word_length = 0;
 		}
 		else
-			ft_split_new_word(&lword, &word, &c);
-		if (((ft_strncmp(&str[c], charset, ft_strlen(charset)) == 0)
-			|| str[c] == '\0') && word == nword)
-			{
-				strword = malloc(sizeof(char *) * (lword + 1));
-				return (ft_strncpy(strword, &str[c - (lword)], lword));
-			}
+		{
+			ft_split_new_word(&each_word_length, &word, &i);
+		}
+		if (((ft_strncmp(&str[i], splitter, ft_strlen(splitter)) == 0) || str[i] == '\0') && word == nword)
+		{
+			strword = malloc(sizeof(char *) * (each_word_length + 1));
+			return (ft_strncpy(strword, &str[i - each_word_length], each_word_length));
+		}
 	}
 	return (NULL);
 }
 
-char **ft_split(char *str, char *charset)
+char **ft_split(const char *string, char *splitter)
 {
-	char	**tab;
-	int		nbword;
-	int		i;
+	char **matrix;
+	char *str;
+	int number_of_words;
+	int i;
 
-	nbword = ft_split_count_words(str, charset);
-	tab = malloc(sizeof(char *) * (nbword + 1));
+	str = (char *)string;
+	number_of_words = ft_count_words(str, splitter);
+	matrix = malloc(sizeof(char *) * (number_of_words + 1));
 	i = 0;
-	while (i < nbword)
+	while (i < number_of_words)
 	{
-		tab[i] = ft_strdup(ft_split_get_word(str, charset, i + 1));
+		matrix[i] = ft_strdup(ft_split_get_word(str, splitter, i + 1));
 		i++;
 	}
-	tab[i] = malloc(sizeof(char) * 1);
-	tab[i][0] = '\0';
-	return (tab);
-}
-
-int main (void)
-{
-    char frase[] = "Hola Hola Hola";
-    char b[] = "\n";
-    ft_split(frase, b);
+	matrix[i] = malloc(sizeof(char) * 1);
+	matrix[i][0] = '\0';
+	return (matrix);
 }

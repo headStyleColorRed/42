@@ -34,5 +34,8 @@ char	            *ft_strstr(const char *str, const char *to_find);
 char	            *ft_substr(char *str, size_t start, size_t end);
 char                *ft_strjoin(char const *str1, char const *str2);
 char                *ft_strtrim(char const *s1, char const *set);
+char                **ft_split(const char *string, char *splitter);
+char	            *ft_itoa(int nb);
+char	            *ft_strmapi(char const *string, char (*my_function)(unsigned int, char));
 
 #endif
