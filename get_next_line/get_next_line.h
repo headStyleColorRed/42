@@ -9,6 +9,15 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 32
+# endif
+
+char	*ft_strcat(char *dest, const char *src);
+char	*ft_strnew(size_t size);
+char	*ft_strchr(const char *s, int c);
+size_t	ft_strlen(const char *str);
+
 typedef struct s_list
 {
     void *content;
