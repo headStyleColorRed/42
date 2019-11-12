@@ -10,7 +10,7 @@
 #include <fcntl.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 32
+#  define BUFFER_SIZE 20
 # endif
 
 char	*ft_strcat(char *dest, const char *src);
