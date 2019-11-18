@@ -67,7 +67,7 @@ static void	ft_split_get_word(char **matrix, char *str, char splitter)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (str[i] == splitter && str[i - 1] != splitter)
+		if (str[i] == splitter && str[i - 1] != splitter && i != 0)
 		{
 			m_i++;
 		}
@@ -88,11 +88,7 @@ char		**ft_split(const char *string, char splitter)
 	char	**matrix;
 	char	*str;
 	int		number_of_words;
-	int		i;
-	int		m_i;
 
-	m_i = 0;
-	i = 0;
 	if (!splitter || !string)
 		return (NULL);
 	str = (char *)string;
@@ -101,22 +97,4 @@ char		**ft_split(const char *string, char splitter)
 	ft_split_get_word(matrix, str, splitter);
 	matrix[number_of_words] = NULL;
 	return (matrix);
-}
-
-int main(void)
-{
-    char a[] = "      split       this for   me  !";
-    char splitter = ' ';
-    int length = ft_count_words(a, splitter);
-    int i;
-    char **matrix;
-
-    matrix = ft_split(a, splitter);
-    printf("\n\n\n\n");
-    i = 0;
-    while (i < length + 1)
-    {
-        printf("matrix[i]: %s\n", matrix[i]);
-        i++;
-    }
 }

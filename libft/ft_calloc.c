@@ -14,13 +14,11 @@
 
 void	*ft_calloc(size_t nitems, size_t size)
 {
-	size_t	i;
 	void	*result;
 
 	result = malloc(size * nitems);
 	if (result == 0)
 		return (0);
-	i = 0;
 	ft_bzero(result, nitems * size);
 	return (result);
 }
