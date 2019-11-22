@@ -1,62 +1,105 @@
+
 #include "get_next_line.h"
 
-/*
-    La función get_next_line recibe de main dos parámetros:
-        -fd ->      File Descriptor
-        -line ->    Un puntero vacío
-    
-    1º Declaramos entonces tres variables.
-        1. Una estática para manter constancia de por dónde vamos aunque la función sea reiniciada.
-        2. Un array para guardar temporalmente la string
-        3. Un contador
-    
-    2º Gestionamos errores devolviendo un -1 en caso de fallo.
-
-    3º
-
-*/
-
-int get_next_line(int fd, char **line)
+char	*ft_strnew(size_t size)
 {
-	char *buffer[BUFFER_SIZE + 1];
-	static int *cache;
-	int i;
-	ssize_t pager;
+	char	*str;
+	size_t	i;
 
-	if (fd < 0 || !line || read(fd, cache, 0) < 0)
+	i = 0;
+	str = (char *)malloc(sizeof(*str) * size + 1);
+	if (str == NULL)
+		return (NULL);
+	while (i <= size)
+	{
+		str[i] = '\0';
+		i++;
+	}
+	return (str);
+}
+
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
+{
+	char	*subs;
+	size_t	i;
+
+	if (s == NULL)
+		return (NULL);
+	subs = ft_strnew(len);
+	if (subs == NULL)
+		return (NULL);
+	i = 0;
+	while (i < len)
+	{
+		subs[i] = s[start + i];
+		i++;
+	}
+	return (subs);
+}
+
+ int appendline(char **string, char **line)
+{
+	int len;
+	char *tmp;
+
+	len = 0;
+	while ((*string)[len] != '\n' && (*string)[len] != '\0')
+		len++;
+	if ((*string)[len] == '\n')
+	{
+		*line = ft_strsub(*string, 0, len);
+		tmp = ft_strdup(&((*string)[len + 1]));
+		free(*string);
+		*string = tmp;
+		if ((*string)[0] == '\0')
+		{
+			free(*string);
+			*string = NULL;
+		}
+	}
+	else
+	{
+		*line = ft_strdup(*string);
+			free(*string);
+			*string = NULL;
+	}
+	return (1);
+}
+
+ int output_handler(char **state_keeper, char **line, int ret, int fd)
+{
+	if (ret < 0)
 		return (-1);
-
-	i = 0;
-	
-	pager = read(fd, buffer, BUFFER_SIZE);
-	printf("buffer: %s", buffer);
-
-	i = 0;
+	else if (ret == 0 && state_keeper[fd] == NULL)
+		return (0);
+	else
+		return (appendline(&state_keeper[fd], line));
 }
 
-int main(int argc, char **argv)
+int get_next_line(const int fd, char **line)
 {
-	int fd[argc];
-	int result[argc];
-	char *str;
-	int number_of_files;
-	int i;
+	int ret;
+	static char *state_keeper[FD_SIZE];
+	char buff[BUFFER_SIZE + 1];
+	char *tmp;
 
-	i = 0;
-	while (i < argc - 1)
+
+
+	if (fd < 0 || line == NULL)
+		return (-1);
+	while ((ret = read(fd, buff, BUFFER_SIZE)) > 0)
 	{
-		fd[i] = open(argv[i + 1], O_RDONLY);
-		i++;
+		buff[ret] = '\0';
+		if (state_keeper[fd] == NULL)
+			state_keeper[fd] = ft_strdup(buff);
+		else
+		{
+			tmp = ft_strjoin(state_keeper[fd], buff);
+			free(state_keeper[fd]);
+			state_keeper[fd] = tmp;
+		}
+		if (ft_strchr(state_keeper[fd], '\n'))
+			break;
 	}
-	number_of_files = i;
-	i = 0;
-	while (i < number_of_files)
-	{
-		result[i] = get_next_line(fd[i], &str);
-		printf("\nResult: %d\n", result[i]);
-		i++;
-	}
-	return (0);
+	return (output_handler(state_keeper, line, ret, fd));
 }
-
-//gcc -D BUFFER_SIZE=5 get_next_line.c get_next_line.h get_next_line_utils.c && ./a.out test.txt 

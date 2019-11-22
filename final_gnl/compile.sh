@@ -1,1 +1,0 @@
-gcc -D BUFFER_SIZE=10 testmain.c get_next_line.c get_next_line.h get_next_line_utils.c && ./a.out file2 
