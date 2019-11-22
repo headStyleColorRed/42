@@ -58,3 +58,5 @@ int main(int argc, char **argv)
 	}
 	return (0);
 }
+
+//gcc -D BUFFER_SIZE=5 get_next_line.c get_next_line.h get_next_line_utils.c && ./a.out test.txt 
