@@ -46,10 +46,10 @@ char				*ft_strstr(const char *str, const char *to_find);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *str1, char const *str2);
 char				*ft_strtrim(char const *s1, char const *set);
-char				**ft_split(const char *string, char splitter);
+char				**ft_split(char const *s, char c);
 char				*ft_itoa(int nb);
 char				*ft_strmapi(char const *string,
-					char (*my_function)(unsigned int, char));
+char 				(*my_function)(unsigned int, char));
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
