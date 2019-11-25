@@ -62,11 +62,11 @@ $(NAME): $(OBJ)
 	@ranlib $(NAME)
 
 clean:
-	$(RM) *.o
+	$(RM) $(OBJ)
 
 fclean: clean
 	$(RM) $(NAME)
-	$(RM) *.out
-	$(RM) *.gch
 
 re: fclean all
+
+.PHONY: clean fclean all re

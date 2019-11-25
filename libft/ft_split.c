@@ -6,95 +6,94 @@
 /*   By: rlabrado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 13:11:51 by rlabrado          #+#    #+#             */
-/*   Updated: 2019/11/18 15:40:46 by rlabrado         ###   ########.fr       */
+/*   Updated: 2019/11/25 10:55:55 by rlabrado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	word_cpy(char *new_word, char *str, char splitter, int i)
+static int        numstring(char const *s1, char c)
 {
-	int j;
-
-	j = 0;
-	while (str[i] != splitter && str[i] != '\0')
-		new_word[j++] = str[i++];
-	new_word[j] = '\0';
+    int    comp;
+    int    cles;
+    
+    comp = 0;
+    cles = 0;
+    if (*s1 == '\0')
+        return (0);
+    while (*s1 != '\0')
+    {
+        if (*s1 == c)
+            cles = 0;
+        else if (cles == 0)
+        {
+            cles = 1;
+            comp++;
+        }
+        s1++;
+    }
+    return (comp);
 }
 
-static int	ft_count_words(char *str, char splitter)
+static int        numchar(char const *s2, char c, int i)
 {
-	int i;
-	int number_of_words;
-
-	i = 0;
-	number_of_words = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] == splitter)
-			i++;
-		else
-		{
-			number_of_words++;
-			while (str[i] != '\0' && str[i] != splitter)
-				i++;
-		}
-	}
-	return (number_of_words);
+    int    lenght;
+    
+    lenght = 0;
+    while (s2[i] != c && s2[i] != '\0')
+    {
+        lenght++;
+        i++;
+    }
+    return (lenght);
 }
 
-static int	ft_current_word_length(char *str, char splitter, int i)
+static char        **freee(char const **dst, int j)
 {
-	int j;
-
-	j = 0;
-	while (str[i] != splitter && str[i] != '\0')
-	{
-		i++;
-		j++;
-	}
-	return (j);
+    while (j > 0)
+    {
+        j--;
+        free((void *)dst[j]);
+    }
+    free(dst);
+    return (NULL);
 }
 
-static void	ft_split_get_word(char **matrix, char *str, char splitter)
+static char        **affect(char const *s, char **dst, char c, int l)
 {
-	int		i;
-	int		m_i;
-	char	*new_word;
-	int		length;
-
-	m_i = 0;
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] == splitter && str[i - 1] != splitter && i != 0)
-		{
-			m_i++;
-		}
-		else if (str[i] != splitter)
-		{
-			length = ft_current_word_length(str, splitter, i);
-			new_word = malloc((sizeof(char *) * length) + 1);
-			word_cpy(new_word, str, splitter, i);
-			matrix[m_i] = ft_strdup(new_word);
-			i += (length - 1);
-		}
-		i++;
-	}
+    int    i;
+    int    j;
+    int    k;
+    
+    i = 0;
+    j = 0;
+    while (s[i] != '\0' && j < l)
+    {
+        k = 0;
+        while (s[i] == c)
+            i++;
+        dst[j] = (char *)malloc(sizeof(char) * numchar(s, c, i) + 1);
+        if (dst[j] == NULL)
+            return (freee((char const **)dst, j));
+        while (s[i] != '\0' && s[i] != c)
+            dst[j][k++] = s[i++];
+        dst[j][k] = '\0';
+        j++;
+    }
+    dst[j] = 0;
+    return (dst);
 }
 
-char		**ft_split(const char *string, char splitter)
+char            **ft_split(char const *s, char c)
 {
-	char	**matrix;
-	char	*str;
-	int		number_of_words;
-
-	if (!splitter || !string)
-		return (NULL);
-	str = (char *)string;
-	number_of_words = ft_count_words(str, splitter);
-	matrix = malloc((sizeof(char *) * number_of_words) + 1);
-	ft_split_get_word(matrix, str, splitter);
-	matrix[number_of_words] = NULL;
-	return (matrix);
+    char    **dst;
+    int        l;
+    
+    if (s == NULL)
+        return (NULL);
+    l = numstring(s, c);
+    dst = (char **)malloc(sizeof(char *) * (l + 1));
+    if (dst == NULL)
+        return (NULL);
+    return (affect(s, dst, c, l));
 }
