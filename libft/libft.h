@@ -6,7 +6,7 @@
 /*   By: rlabrado <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 13:04:41 by rlabrado          #+#    #+#             */
-/*   Updated: 2019/11/18 13:04:46 by rlabrado         ###   ########.fr       */
+/*   Updated: 2019/11/27 11:01:03 by rlabrado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char				*ft_strtrim(char const *s1, char const *set);
 char				**ft_split(char const *s, char c);
 char				*ft_itoa(int nb);
 char				*ft_strmapi(char const *string,
-char 				(*my_function)(unsigned int, char));
+char				(*my_function)(unsigned int, char));
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char *s, int fd);
 void				ft_putendl_fd(char *s, int fd);
