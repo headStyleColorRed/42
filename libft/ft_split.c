@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static int		word_counter(char const *string, char splitter)
+static int	word_counter(char const *string, char splitter)
 {
 	int	words;
 	int	i;
@@ -35,7 +35,7 @@ static int		word_counter(char const *string, char splitter)
 	return (words);
 }
 
-static int		length_of_word(char const *s2, char c, int i)
+static int	length_of_word(char const *s2, char c, int i)
 {
 	int	lenght;
 
@@ -48,7 +48,7 @@ static int		length_of_word(char const *s2, char c, int i)
 	return (lenght);
 }
 
-static char		**lib_matrix(char const **matrix, int j)
+static char	**lib_matrix(char const **matrix, int j)
 {
 	while (j > 0)
 	{
@@ -59,7 +59,7 @@ static char		**lib_matrix(char const **matrix, int j)
 	return (NULL);
 }
 
-static char		**get_splitted_sentence(char const *string, char **matrix,
+static char	**get_splitted_sentence(char const *string, char **matrix,
 		char splitter, int number_of_words)
 {
 	int	i;
@@ -73,8 +73,8 @@ static char		**get_splitted_sentence(char const *string, char **matrix,
 		k = 0;
 		while (string[i] == splitter)
 			i++;
-		matrix[j] = (char *)malloc(sizeof(char) *
-				length_of_word(string, splitter, i) + 1);
+		matrix[j] = (char *)malloc(sizeof(char)
+				* length_of_word(string, splitter, i) + 1);
 		if (matrix[j] == NULL)
 			return (lib_matrix((char const **)matrix, j));
 		while (string[i] != '\0' && string[i] != splitter)
@@ -86,7 +86,7 @@ static char		**get_splitted_sentence(char const *string, char **matrix,
 	return (matrix);
 }
 
-char			**ft_split(char const *string, char splitter)
+char	**ft_split(char const *string, char splitter)
 {
 	char	**matrix;
 	int		number_of_words;
