@@ -14,11 +14,11 @@
 
 char	*ft_strstr(const char *str, const char *to_find)
 {
-	unsigned int pos;
-	unsigned int i;
+	unsigned int	pos;
+	unsigned int	i;
 
 	if (!*to_find)
-		return ((char*)str);
+		return ((char *)str);
 	pos = 0;
 	while (str[pos] != '\0')
 	{
@@ -28,7 +28,7 @@ char	*ft_strstr(const char *str, const char *to_find)
 			while (to_find[i] != '\0' && str[pos + i] == to_find[i])
 				++i;
 			if (to_find[i] == '\0')
-				return ((char*)&str[pos]);
+				return ((char *)&str[pos]);
 		}
 		++pos;
 	}
