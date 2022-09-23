@@ -14,7 +14,7 @@
 
 static char	*ft_strncpy(char *dest, char const *src, unsigned int n)
 {
-	unsigned int i;
+	unsigned int	i;
 
 	i = 0;
 	while (src[i] != '\0' && i < n)
@@ -33,7 +33,7 @@ static char	*ft_strncpy(char *dest, char const *src, unsigned int n)
 	return (dest);
 }
 
-char		*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	start;
 	size_t	len;
@@ -47,9 +47,10 @@ char		*ft_strtrim(char const *s1, char const *set)
 	len = ft_strlen(&s1[start]);
 	if (len != 0)
 		while (s1[start + len - 1]
-				&& ft_strchr(set, s1[start + len - 1]) != NULL)
-			len--;
-	if ((trimed = (char*)malloc(sizeof(char) * (len + 1))) == NULL)
+			&& ft_strchr(set, s1[start + len - 1]) != NULL)
+		len--;
+	trimed = (char *)malloc(sizeof(char) * (len + 1));
+	if (trimed == NULL)
 		return (NULL);
 	trimed = ft_strncpy(trimed, &s1[start], len);
 	trimed[len] = '\0';
