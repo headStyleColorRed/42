@@ -14,7 +14,7 @@
 
 static int	len(long number)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	if (number < 0)
@@ -36,7 +36,7 @@ static int	writer(char *str)
 	return (1);
 }
 
-char		*ft_itoa(int number)
+char	*ft_itoa(int number)
 {
 	char	*str;
 	long	n;
@@ -46,12 +46,12 @@ char		*ft_itoa(int number)
 	i = len(n);
 	if (i == 0)
 		i += 1;
-	if (!(str = (char *)malloc((sizeof(char) * i) + 1)))
+	str = (char *)malloc((sizeof(char) * i) + 1);
+	if (!str)
 		return (NULL);
 	str[i--] = '\0';
-	if (n == 0)
-		if (writer(str) == 1)
-			return (str);
+	if (n == 0 && writer(str) == 1)
+		return (str);
 	if (n < 0)
 	{
 		str[0] = '-';
