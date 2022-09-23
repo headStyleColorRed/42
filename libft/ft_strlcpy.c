@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-size_t		ft_strlcpy(char *str1, const char *str2, size_t size)
+size_t	ft_strlcpy(char *str1, const char *str2, size_t size)
 {
 	unsigned int	count;
 	size_t			i;
